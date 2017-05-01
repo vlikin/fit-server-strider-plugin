@@ -4,7 +4,8 @@
   "description": "Server deployment",
   "main": "webapp.js",
   "scripts": {
-    "test": "mocha -R spec --recursive test"
+    "test": "mocha -R spec --recursive test",
+    "cli-test": "node $NODE_DEBUG_OPTION cli.js databases"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "cli": "^1.0.1",
+    "cli-table2": "^0.2.0",
     "mysql": "^2.13.0",
     "shelljs": "^0.7.7"
   },

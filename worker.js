@@ -46,23 +46,10 @@ module.exports = {
         args: ['"' + config.prepare + '"']
     },
       //function style (calling done is a MUST)
-      test1: 'echo test',
 			test: function (context, done) {
-				context.comment('Look at ...');
-				//context.data('vvv', 'extend');
-				context.out('stdout|', 'stdout');
-				context.out('Error|', 'err');
-				context.out('strd Error|', 'stderr');
-				context.out('warn|', 'warn');
-				var shell = require('shelljs');
-				shell.ls('*.js').forEach(function (file) {
-					context.out(file +"\n", 'stdout');
-				})
-				//console.log(context);
-				//console.log(config);
-				//this will show up in the terminal log as 'info'
-				//console.log(config.test);
-				return done(null, true);
+      	context.comment('The application state is initiating...');
+      	var lib = require('./lib');
+      	lib.upProjectState(context, done);
 			},
       deploy: 'echo "' + config.deploy + '"',
       cleanup: 'echo "' + config.cleanup + '"'

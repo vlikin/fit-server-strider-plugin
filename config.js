@@ -1,12 +1,13 @@
 'strict'
 
 module.exports = {
+  databasePrefix: process.env.VFIT_DATABASE_PREFIX || 'strider_vfit_',
   mongo: {
-    DB_URI: process.env.VFIT_DB_URI || 'mongodb://localhost/test';
+    dbUri: process.env.VFIT_DB_URI || 'mongodb://localhost/test'
   },
   mysql: {
-    HOST: process.env.VFIR_MYSQL_HOST || 'localhost',
-    ROOT_USER: process.env.MYSQL_ROOT_USER || 'root',
-    ROOT_PASSWORD: process.env.MYSQL_ROOT_PASSWORD || 'root'
+    host: process.env.VFIR_MYSQL_HOST || 'localhost',
+    rootUser: process.env.VFIT_MYSQL_ROOT_USER || 'root',
+    rootPassword: process.env.VFIT_MYSQL_ROOT_PASSWORD || 'root'
   }
 };
