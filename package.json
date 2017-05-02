@@ -5,7 +5,7 @@
   "main": "webapp.js",
   "scripts": {
     "test": "mocha -R spec --recursive test",
-    "cli-test": "node $NODE_DEBUG_OPTION cli.js databases"
+    "cli-test": "node $NODE_DEBUG_OPTION cli.js test"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "author": "viktor.likin@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "cli": "^1.0.1",
     "cli-table2": "^0.2.0",
     "mysql": "^2.13.0",

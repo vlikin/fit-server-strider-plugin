@@ -9,9 +9,9 @@ var configDefaults = {
   cleanup: 'Hi from `cleanup`'
 };
 
-/*
-* $scope.configs, $scope.branch and $scope.pluginConfig, among others are available from the parent scope
-* */
+/**
+	* $scope.configs, $scope.branch and $scope.pluginConfig, among others are available from the parent scope
+ 	*/
 app.controller('VFitController', ['$scope', function ($scope) {
 	$scope.saving = false;
 

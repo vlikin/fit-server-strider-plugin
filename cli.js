@@ -1,3 +1,5 @@
+'use strict'
+
 const cli = require('cli');
 cli.parse(null, ['test', 'databases', 'sync']);
 
@@ -24,6 +26,6 @@ if ('databases' == cli.command) {
 }
 
 // Another command.
-else if('test_list_databases' == cli.command) {
-
+else if('test' == cli.command) {
+  console.log('test');
 }

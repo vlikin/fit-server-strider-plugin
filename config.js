@@ -1,4 +1,4 @@
-'strict'
+'use strict'
 
 module.exports = {
   databasePrefix: process.env.VFIT_DATABASE_PREFIX || 'strider_vfit_',
