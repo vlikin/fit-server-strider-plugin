@@ -1,5 +1,7 @@
 'use strict';
 
+var lib = require('./lib');
+
 module.exports = {
   init: function (config, job, context, cb) {
     var ret = {
@@ -12,17 +14,27 @@ module.exports = {
         });
       },
       environment: 'echo "' + config.environment + '"',
-      prepare: {
-        command: 'echo',
-        args: ['"' + config.prepare + '"']
+      prepare: function (context, done) {
+        context.comment('Deletes unused resources.');
+        return lib.deleteUnusedJobResources()
+          .then(function() {
+            context.comment('Resources were cleared.');
+            done(null, true);
+          })
+          .catch(function(err) {
+            context.out(err, 'stderror');
+            done(err, false);
+          });
       },
       test: function (context, done) {
       	context.comment('The application state is initiating...');
-      	var lib = require('./lib');
       	lib.upProjectState(context, done);
 			},
       deploy: 'echo "' + config.deploy + '"',
-      cleanup: 'echo "' + config.cleanup + '"'
+      cleanup: function (context, done) {
+        //lib.dispose();
+        done(null, true);
+      }
     };
 		return cb(null, ret);
 	},
