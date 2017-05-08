@@ -25,7 +25,8 @@
     "github": "^9.2.0",
     "mongoose": "^4.9.7",
     "mysql": "^2.13.0",
-    "shelljs": "^0.7.7"
+    "shelljs": "^0.7.7",
+    "slack": "^8.3.0"
   },
   "strider": {
     "type": "job",

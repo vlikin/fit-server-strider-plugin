@@ -1,7 +1,7 @@
 'use strict'
 
 const cli = require('cli');
-cli.parse(null, ['test', 'databases', 'sync', 'set-github-status', 'post-github-status']);
+cli.parse(null, ['test', 'databases', 'sync', 'set-github-status', 'post-github-status', 'post-slack-message']);
 
 // Lists MySQL databases.
 if ('databases' == cli.command) {
@@ -109,4 +109,17 @@ else if('post-github-status' == cli.command) {
   // write data to request body
   req.write(postData);
   req.end();
+}
+else if('post-slack-message' == cli.command) {
+  var slack = require('slack');
+  var token = 'XXXXXXX';
+
+  slack.chat.postMessage({
+    token: token,
+    channel: 'C50NE2NAV',
+    text: 'Hello from Bot - Viktor'
+  }, (err, data) => {
+    console.log(err, data);
+  })
+  console.log('post-slack-message');
 }
